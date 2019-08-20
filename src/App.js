@@ -11,9 +11,13 @@ const trackingId = "UA-146062468-1";
 
 function App() {
   useEffect(() => {
-    initGA(trackingId);
-    PageView();
-    console.log("this portion is running");
+    try {
+      initGA(trackingId);
+      PageView();
+      console.log("this portion is running");
+    } catch (error) {
+      console.log(error);
+    }
   }, []);
   return (
     <StoreProvider store={store}>

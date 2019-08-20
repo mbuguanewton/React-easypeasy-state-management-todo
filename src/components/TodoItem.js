@@ -1,5 +1,6 @@
 import React from "react";
 import { useStoreActions } from "easy-peasy";
+import { Event } from "./tracking";
 
 function TodoItem({ todo }) {
   const { remove, toggle } = useStoreActions(actions => ({
@@ -9,7 +10,10 @@ function TodoItem({ todo }) {
   return (
     <div className="todo card">
       <span
-        onClick={() => toggle(todo.id)}
+        onClick={() => {
+          Event("Toggle", "Completed", "CHECKED_COMPLETED");
+          toggle(todo.id);
+        }}
         style={{
           cursor: "pointer",
           textDecoration: todo.completed ? "line-through" : "none"
@@ -20,7 +24,10 @@ function TodoItem({ todo }) {
       <i
         className="fas fa-trash-alt"
         style={{ color: "red" }}
-        onClick={() => remove(todo.id)}
+        onClick={() => {
+          Event("Todo", "Remove todo", "REMOVED_TODO");
+          remove(todo);
+        }}
       />
     </div>
   );

@@ -5,9 +5,6 @@ import { Event } from "./tracking";
 function AddTodo() {
   const [title, setTitle] = useState("");
 
-  const handleclick = () => {
-    Event("TODO", "Todo added", "TODO_PAGE");
-  };
   const add = useStoreActions(actions => actions.add);
   return (
     <div>
@@ -33,7 +30,7 @@ function AddTodo() {
           type="submit"
           value="Add Todo"
           className="btn btn-block mt-2"
-          onClick={handleclick}
+          onClick={() => Event("TODO", "Todo added", "TODO_PAGE")}
         />
       </form>
     </div>
