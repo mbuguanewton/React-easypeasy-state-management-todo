@@ -26,7 +26,7 @@ function TodoItem({ todo }) {
         style={{ color: "red" }}
         onClick={() => {
           Event("Todo", "Remove todo", "REMOVED_TODO");
-          remove(todo);
+          remove(todo.id);
         }}
       />
     </div>
