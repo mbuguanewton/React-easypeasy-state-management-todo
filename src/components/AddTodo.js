@@ -1,9 +1,13 @@
 import React, { useState } from "react";
 import { useStoreActions } from "easy-peasy";
+import { Event } from "./tracking";
 
 function AddTodo() {
   const [title, setTitle] = useState("");
 
+  const handleclick = () => {
+    Event("TODO", "Todo added", "TODO_PAGE");
+  };
   const add = useStoreActions(actions => actions.add);
   return (
     <div>
@@ -25,7 +29,12 @@ function AddTodo() {
           placeholder="add todo"
           className="mt-3"
         />
-        <input type="submit" value="Add Todo" className="btn btn-block mt-2" />
+        <input
+          type="submit"
+          value="Add Todo"
+          className="btn btn-block mt-2"
+          onClick={handleclick}
+        />
       </form>
     </div>
   );
