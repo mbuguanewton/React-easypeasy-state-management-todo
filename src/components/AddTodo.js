@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useStoreActions } from "easy-peasy";
 import { Event } from "./googleTracking";
+import { TrackEvent } from "./facebookTracking";
 
 function AddTodo() {
   const [title, setTitle] = useState("");
@@ -36,7 +37,10 @@ function AddTodo() {
           type="submit"
           value="Add Todo"
           className="btn btn-block mt-2"
-          onClick={() => Event("TODO", "Todo added", "TODO_PAGE")}
+          onClick={() => {
+            TrackEvent("Click", "ADD_TODO");
+            Event("TODO", "Todo added", "TODO_PAGE");
+          }}
         />
       </form>
     </div>

@@ -1,6 +1,7 @@
 import React from "react";
 import { useStoreActions } from "easy-peasy";
 import { Event } from "./googleTracking";
+import { TrackEvent } from "./facebookTracking";
 
 function TodoItem({ todo }) {
   const { remove, toggle } = useStoreActions(actions => ({
@@ -25,6 +26,7 @@ function TodoItem({ todo }) {
         className="fas fa-trash-alt"
         style={{ color: "red" }}
         onClick={() => {
+          TrackEvent("Click", "REMOVE_TODO");
           Event("TODO_ITEM", "Remove todo", "REMOVED_TODO");
           remove(todo.id);
         }}
