@@ -19,13 +19,19 @@ function AddTodo() {
           setTitle("");
         }}
       >
-        <input
-          type="text"
-          value={title}
-          onChange={e => setTitle(e.target.value)}
-          placeholder="add todo"
-          className="mt-3"
-        />
+        <div className="form-group">
+          <label htmlFor="title" className="mt-3" style={{ color: "#999" }}>
+            Todo title
+          </label>
+          <input
+            type="text"
+            value={title}
+            onChange={e => setTitle(e.target.value)}
+            placeholder="add todo"
+            id="title"
+          />
+        </div>
+
         <input
           type="submit"
           value="Add Todo"

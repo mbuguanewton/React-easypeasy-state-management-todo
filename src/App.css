@@ -13,14 +13,18 @@ body {
   width: 500px;
   margin: 10px auto;
   overflow: hidden;
+  color: #d2d2d2;
 }
 .todo {
   padding: 5px 15px;
   margin-bottom: 5px;
-
   display: flex;
   justify-content: space-between;
   flex-direction: row;
+  align-items: center;
+  background: #0c1224;
+  border-radius: 0;
+  height: 4rem;
 }
 
 .todo button {
@@ -34,13 +38,13 @@ input[type="text"] {
   padding: 5px;
   width: 100%;
   font-size: 0.9rem;
-  background: #eeeeee;
-  border: none;
-  border-radius: 3px;
+  background: #0c1224;
+  border: 0.5px solid #1c2233;
+  border-radius: 0;
   height: 3rem;
 }
 input[type="text"]::placeholder {
-  margin: 0 5px;
+  padding: 0 20px;
   font-size: 0.9rem;
 }
 input[type="text"]:focus {
@@ -54,7 +58,8 @@ input[type="submit"] {
   padding: 5px;
   font-size: 1.1rem;
   cursor: pointer;
-  height: 3rem;
+  height: 4rem;
+  border-radius: 2px;
 }
 input[type="submit"]:hover {
   color: #fff;

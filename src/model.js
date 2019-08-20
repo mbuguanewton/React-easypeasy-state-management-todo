@@ -5,7 +5,7 @@ export default {
   todos: [],
   fetchTodos: thunk(async actions => {
     const res = await fetch(
-      "https://jsonplaceholder.typicode.com/todos?_limit=6"
+      "https://jsonplaceholder.typicode.com/todos?_limit=3"
     );
 
     const todos = await res.json();
