@@ -1,6 +1,6 @@
 import React from "react";
 import { useStoreActions } from "easy-peasy";
-import { Event } from "./tracking";
+import { Event } from "./Tracking";
 
 function TodoItem({ todo }) {
   const { remove, toggle } = useStoreActions(actions => ({
@@ -25,7 +25,7 @@ function TodoItem({ todo }) {
         className="fas fa-trash-alt"
         style={{ color: "red" }}
         onClick={() => {
-          Event("Todo", "Remove todo", "REMOVED_TODO");
+          Event("TODO_ITEM", "Remove todo", "REMOVED_TODO");
           remove(todo.id);
         }}
       />

@@ -4,7 +4,7 @@ import Todos from "./components/Todos";
 import Nav from "./components/Navbar";
 import AddTodo from "./components/AddTodo";
 import { StoreProvider, createStore } from "easy-peasy";
-import { PageView, initGA } from "./components/tracking";
+import { PageView, initGA } from "./components/Tracking";
 import "./App.css";
 
 const store = createStore(model);
@@ -13,9 +13,9 @@ const trackingId = "UA-146062468-1";
 function App() {
   useEffect(() => {
     try {
+      console.log("this portion is running");
       initGA(trackingId);
       PageView();
-      console.log("this portion is running");
     } catch (error) {
       console.log(error);
     }

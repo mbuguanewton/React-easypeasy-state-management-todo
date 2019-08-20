@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useStoreActions } from "easy-peasy";
-import { Event } from "./tracking";
+import { Event } from "./Tracking";
 
 function AddTodo() {
   const [title, setTitle] = useState("");
