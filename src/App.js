@@ -4,18 +4,25 @@ import Todos from "./components/Todos";
 import Nav from "./components/Navbar";
 import AddTodo from "./components/AddTodo";
 import { StoreProvider, createStore } from "easy-peasy";
-import { PageView, initGA } from "./components/Tracking";
+import { PageView, initGA } from "./components/googleTracking";
+import { initPixel, TrackPageView } from "./components/facebookTracking";
 import "./App.css";
 
 const store = createStore(model);
-const trackingId = "UA-146062468-1";
+const googleTrackingId = "UA-146062468-1";
+const facebookTrackingId = 2168243083301885;
 
 function App() {
   useEffect(() => {
     try {
       console.log("this portion is running");
-      initGA(trackingId);
+      // initialising google analytics
+      initGA(googleTrackingId);
       PageView();
+
+      // initialising facebook pixel
+      initPixel(facebookTrackingId);
+      TrackPageView();
     } catch (error) {
       console.log(error);
     }

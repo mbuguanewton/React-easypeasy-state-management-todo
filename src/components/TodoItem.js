@@ -1,6 +1,6 @@
 import React from "react";
 import { useStoreActions } from "easy-peasy";
-import { Event } from "./Tracking";
+import { Event } from "./googleTracking";
 
 function TodoItem({ todo }) {
   const { remove, toggle } = useStoreActions(actions => ({
