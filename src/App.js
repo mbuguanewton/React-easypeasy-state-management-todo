@@ -13,6 +13,7 @@ function App() {
   useEffect(() => {
     initGA(trackingId);
     PageView();
+    console.log("this portion is running");
   }, []);
   return (
     <StoreProvider store={store}>
