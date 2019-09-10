@@ -4,6 +4,7 @@ import Todos from "./components/Todos";
 import Nav from "./components/Navbar";
 import AddTodo from "./components/AddTodo";
 import { StoreProvider, createStore } from "easy-peasy";
+import { initTagManager } from "./components/googleTagManager";
 import { PageView, initGA } from "./components/googleTracking";
 import { initPixel, TrackPageView } from "./components/facebookTracking";
 import "./App.css";
@@ -11,6 +12,7 @@ import "./App.css";
 const store = createStore(model);
 const googleTrackingId = "UA-146062468-1";
 const facebookTrackingId = 2168243083301885;
+const tagManagerId = "GTM-WXTGR8D";
 
 function App() {
   useEffect(() => {
@@ -23,6 +25,12 @@ function App() {
       // initialising facebook pixel
       initPixel(facebookTrackingId);
       TrackPageView();
+
+      // initializing tagmanager
+      const tagManagerArgs = {
+        gtmId: tagManagerId
+      };
+      initTagManager(tagManagerArgs);
     } catch (error) {
       console.log(error);
     }
